@@ -1,0 +1,11 @@
+<% if(val != null) {%>
+    <div class="board-content" id="bc/<%= val.id %>">
+        <h3 id="subtitle"><%= val.id %>.<%= val.title %></h3>
+        <p><%= val.text %> </p>
+        <h4 id="text-name">
+            <img src="/icon/<%= val.imgurl %>.jpg">
+            <a href="/home/info/<%= val.username %>" style="margin-right: 3px;"><%= val.username %> </a>
+            (<span id="date"><%= val.date %> <%= val.time %></span>)
+        </h4>
+    </div>
+<% } %>

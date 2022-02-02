@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset='utf-8">
+        <title>PhiloSophy-<%= title %>-</title>
+        <link rel="stylesheet" href="/stylesheets/index.css">
+        <link rel="icon" href="/icon/22299638.jpg">
+    <body class="signup_body">
+        <a href="/home" id="su_back"><< 戻る</a>
+        <h1 style="text-align: center;">アカウント情報</h1>
+        <div id="account">
+            <div id="account_img">
+                <img src="/icon/22299638.jpg">
+            </div>
+            <div id="account_info">
+                <h2>アカウント名：<%= name %></h2>
+                <h2>自己紹介：<p><%= intro %></p></h2>
+            </div>
+        </div>
+        <div id="account_log">
+            <% if(content != '') {%>
+                <% for (let i in content) {%>
+                    <% let val = content[i]; %>
+                    <div id="board-content">
+                        <h3 id="subtitle"><%= val.id %>.<%= val.title %></h3>
+                        <p><%= val.text %> </p>
+                        <h4 id="text-name">
+                            (<span id="date"><%= val.date %> </span>)
+                        </h4>
+                    </div>
+            <% }} %>
+        </div>
+        <script src="/javascripts/jquery-3.6.0.min.js"></script>
+        <script src="/javascripts/dom-index.js"></script>
+    </body>
+</html>

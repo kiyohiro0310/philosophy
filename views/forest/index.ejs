@@ -1,0 +1,165 @@
+<html lang="en">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset='utf-8">
+    <title>哲学の森</title>
+    <link rel="stylesheet" href="/stylesheets/forest.css">
+    <link rel="icon" href="/icon/22299638.jpg">
+</head>
+<body>
+    <div class="forest">
+        <a href="/home"><ion-icon name="chevron-back-outline" id="left-arrow"></ion-icon></a>
+        <div id="header">
+            <hgroup id="title">
+                <h2 style="margin-bottom: 0;">哲学の森</h2>
+                <h3 style="margin-top: 0;">~The forest of philosophy~</h3>
+            </hgroup>
+        </div>
+        <div id="search">
+            <form action="/forest" method="post">
+                <input type="find" name="find" id="find" placeholder="人物名、名言  ...etc">
+                <select name="category" id="category" >
+                    <option>カテゴリ</option>
+                    <option value="人生">人生</option>
+                    <option value="仕事">仕事</option>
+                    <option value="恋愛">恋愛</option>
+                    <option value="幸福">幸福</option>
+                    <option value="人間関係">人間関係</option>
+                </select>
+                <input type="submit" id="submit" value="" >
+            </form>
+        </div>
+        <div id="info">
+            <div id="content">
+                <% if(content !== '') {%>
+                <h2 style="text-align: center;">最新の投稿</h2>
+                <ul>
+                    <% for(let i in content) {%>
+                        <% let val = content[i]; %>
+                        <li><a href="#card/<%= val.id %> "><%= val.title %> (<%= val.person %>)</a></li>
+                    <% } %>
+                </ul>
+                <% } %>
+
+                <% if(findout !== '') {%>
+                    <h2 style="text-align: center;">検索結果</h2>
+                    <div id="content-left">
+                        <h3>人物名</h3>
+                        <ul>
+                            <% for(let i in findout) {%>
+                                <% let val = findout[i]; %>
+                                <li><a href="/forest/person/<%= val.person %>"><%= val.person %></a></li>
+                            <% } %>
+                        </ul>
+                    </div>
+                    <div id="content-right">
+                        <h3>関連する哲学一覧()</h3>
+                        <ul>
+                            <% for(let i in findout) { %>
+                                <% let val = findout[i]; %>
+                                <li><a href="#card/<%= val.id %>"><%= val.title %> (<%= val.person %>)</a></li>
+                            <% } %>
+                        </ul>
+                    </div>
+                <% } %>
+
+                <% if(search !== '') {%>
+                    <h2 style="text-align: center;">最新の投稿</h2>
+                    <ul>
+                        <% for(let i in search) {%>
+                            <% let val = search[i]; %>
+                            <li><a href="#card/<%= val.id %> "><%= val.title %> (<%= val.person %>)</a></li>
+                        <% } %>
+                    </ul>
+                    <% } %>
+            </div>
+        </div>
+        <div id="main">
+            <div id="main-left">
+                <h2>項目</h2>
+                <div id="initial">
+                    <a href="/forest/ア">ア</a><a href="/forest/イ">イ</a><a href="/forest/ウ">ウ</a><a href="/forest/エ">エ</a><a href="/forest/オ">オ</a><br>
+                    <a href="/forest/カ">カ</a><a href="/forest/キ">キ</a><a href="/forest/ク">ク</a><a href="/forest/ケ">ケ</a><a href="/forest/コ">コ</a><br>
+                    <a href="/forest/サ">サ</a><a href="/forest/シ">シ</a><a href="/forest/ス">ス</a><a href="/forest/セ">セ</a><a href="/forest/ソ">ソ</a><br>
+                    <a href="/forest/タ">タ</a><a href="/forest/チ">チ</a><a href="/forest/ツ">ツ</a><a href="/forest/テ">テ</a><a href="/forest/ト">ト</a><br>
+                    <a href="/forest/ナ">ナ</a><a href="/forest/ニ">ニ</a><a href="/forest/ヌ">ヌ</a><a href="/forest/ネ">ネ</a><a href="/forest/ノ">ノ</a><br>
+
+                    <a href="/forest/ハ">ハ</a><a href="/forest/ヒ">ヒ</a><a href="/forest/フ">フ</a><a href="/forest/へ">ヘ</a><a href="/forest/ホ">ホ</a><br>
+                    <a href="/forest/マ">マ</a><a href="/forest/ミ">ミ</a><a href="/forest/ム">ム</a><a href="/forest/メ">メ</a><a href="/forest/モ">モ</a><br>
+                    <a href="/forest/ヤ">ヤ</a><a href="/forest/ユ">ユ</a><a href="/forest/ヨ">ヨ</a><br>
+                    <a href="/forest/ラ">ラ</a><a href="/forest/リ">リ</a><a href="/forest/ル">ル</a><a href="/forest/レ">レ</a><a href="/forest/ロ">ロ</a><br>
+                    <a href="/forest/ワ">ワ</a><br>
+                </div>
+                <div id="name">
+                    <h2>名前</h2>
+                    <% if( content !== '') {%>
+                    <% for(let i in content) {%>
+                        <% let val = content[i]; %>
+                        <p>
+                            <a href="/forest/<%= val.person %>">
+                                <%= val.person %>
+                            </a>
+                        </p>
+                    <% }} %>
+                    <% if( findout !== '') {%>
+                        <% for(let i in findout) {%>
+                            <% let val = findout[i]; %>
+                            <p>
+                                <a href="/forest/<%= val.person %>">
+                                    <%= val.person %>
+                                </a>
+                            </p>
+                        <% }} %>
+                        <% if( search !== '') {%>
+                            <% for(let i in search) {%>
+                                <% let val = search[i]; %>
+                                <p>
+                                    <a href="/forest/<%= val.person %>">
+                                        <%= val.person %>
+                                    </a>
+                                </p>
+                        <% }} %>
+                </div>
+            </div>
+            <div class="main-right">
+                <h2 style="margin: 1% 5%;">一覧</h2>
+                <div id="cards">
+                    <% if(content !== '') {%>
+                        <% for ( let i in content) {%>
+                        <% let val = content[i]; %>
+                            <div class="card" id="card/<%= val.id %>">
+                                <h2 style="margin: 0; color:black;"><%= val.title %></h2>
+                                <h4 style="margin-top: 0;">-<a href="/forest/person/<%= val.person %>"><%= val.person %></a></h4>
+                                <p><%= val.text %></p>
+                            </div>
+                    <% }} %>
+                    <% if(findout !== '') {%>
+                        <% for ( let i in findout) {%>
+                        <% let val = findout[i]; %>
+                            <div class="card" id="card/<%= val.id %>">
+                                <h2 style="margin: 0; color:black;"><%= val.title %></h2>
+                                <h4 style="margin-top: 0;">-<a href="/forest/person/<%= val.person %>"><%= val.person %></a></h4>
+                                <p><%= val.text %></p>
+                            </div>
+                    <% }} %>
+                    <% if(search !== '') { %>
+                        <% for ( let i in search) {%>
+                            <% let val = search[i]; %>
+                                <div class="card" id="card/<%= val.id %>">
+                                    <h2 style="margin: 0; color:black;"><%= val.title %></h2>
+                                    <h4 style="margin-top: 0;">-<a href="/forest/person/<%= val.person %>"><%= val.person %></a></h4>
+                                    <p><%= val.text %></p>
+                                </div>
+                    <% }} %>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="top show">
+        <h3>Top</h3>
+    </div>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <script src="/javascripts/jquery-3.6.0.min.js"></script>
+    <script src="/javascripts/dom-forest.js"></script>
+</body>
+</html>

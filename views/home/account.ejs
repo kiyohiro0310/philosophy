@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset='utf-8">
+        <title>PhiloSophy-<%= title %> -</title>
+        <link rel="stylesheet" href="/stylesheets/index.css">
+        <link rel="icon" href="/icon/22299638.jpg">
+    <body class="signup_body">
+        <a href="/home" id="su_back"><< 戻る</a>
+        <h1 style="text-align: center;">アカウント情報</h1>
+        <div id="account">
+            <div id="account_img">
+                <img src="/icon/22299638.jpg">
+                <p id="img_text">編集</p>
+            </div>
+            <div id="account_info">
+                <form action="/home/account" method="post">
+                    <div id="form_group">
+                        <label for="ac_name">UserName:</label><br>
+                        <input type="text" name="ac_name" id="ac_name" value="<%= name %>"><br>
+                    </div>
+                    <div id="form_group">
+                        <label for="ac_pass">PassWord:</label><br>
+                        <input type="text" name="ac_pass" id="ac_pass" value="<%= pass %>"><br>
+                    </div>
+                    <div id="form_group">
+                        <label for="ac_mail">Email:</label><br>
+                        <input type="text" name="ac_mail" id="ac_mail" value="<%= mail %>"><br>
+                    </div>
+                    <input type="submit" value="編集" id="ac_submit"><br>
+                </form>
+            </div>
+        </div>
+        <div id="account_log">
+            <% if(content != '') {%>
+                <% for (let i in content) {%>
+                    <% let val = content[i]; %>
+                    <div id="board-content">
+                        <h3 id="subtitle"><%= val.id %>.<%= val.title %></h3>
+                        <p><%= val.text %> </p>
+                        <h4 id="text-name">
+                            <img src="/icon/<%= val.imgurl %>.jpg">
+                            <a href="/home/<%= val.username %> " style="margin-right: 3px;"><%= val.username %> </a>
+                            (<span id="date"><%= val.date %> </span>)
+                        </h4>
+                    </div>
+            <% }} %>
+        </div>
+        <script src="/javascripts/jquery-3.6.0.min.js"></script>
+        <script src="/javascripts/dom-index.js"></script>
+    </body>
+</html>

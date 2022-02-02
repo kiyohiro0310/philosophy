@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset='utf-8">
+        <title>PhiloSophy-<%= title %> -</title>
+        <link rel="stylesheet" href="/stylesheets/index.css">
+        <link rel="icon" href="/icon/22299638.jpg">
+    </head>
+    <body class="signup_body">
+        <a href="/home" id="su_back"><< 戻る</a>
+        <div class="signup">
+            <h2>アカウント作成</h2>
+            <p style="color: red;"><%= result %> </p>
+            <form action="/home/signup" method="post">
+                <input type="text" name="su_name" id="su_name" placeholder="UserName"><br>
+                <input type="text" name="su_mail" id="su_mail" placeholder="E-mail"><br>
+                <input type="password" name="su_pass" id="su_pass" placeholder="PassWord"><br>
+                <input type="password" name="su_confirm" id="su_confirm" placeholder="PassWord確認"><br>
+                <p><input type="checkbox" name="su_check" id="su_check"><a href="#">利用規約</a>及び<a href="#">プライバシーポリシー</a>に同意する。</p><br>
+                <input type="submit" value="登録" id="su_submit">
+            </form>
+        </div>
+        <script src="/javascripts/jquery-3.6.0.min.js"></script>
+        <script src="/javascripts/dom-index.js"></script>
+</body>
+</html>

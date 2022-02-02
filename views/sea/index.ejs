@@ -1,0 +1,63 @@
+<html lang="en">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset='utf-8">
+    <title>思考の海</title>
+    <link rel="stylesheet" href="/stylesheets/sea.css">
+    <link rel="icon" href="/icon/22299638.jpg">
+</head>
+<body>
+    <a href="/home"><ion-icon name="chevron-forward-outline" id="right-arrow"></ion-icon></a>
+    <div class="sea">
+        <div id="header">
+            <hgroup id="title">
+                <h2 style="margin-bottom: 4px;">思考の海</h2>
+                <h3 style="margin-top:0;">~The depth of sea~</h3>
+            </hgroup>
+        </div>
+
+        <div id="main">
+            <h2 id="subject">あなたの哲学を教えてください</h2>
+            <% if(!flg) {%>
+                <h3 style="color: rgb(228, 70, 70); text-align:center;">この機能を使うには、トップ画面にてログインして下さい。</h3>
+            <% } %>
+            <div id="share">
+                <form action="/sea" method="post">
+                    <input type="text" name="text" id="text" placeholder="タイトル">
+                    <textarea name="textcontent" id="textcontent" cols="100" rows="15" placeholder="（年齢による経験の差や住む世界によって考え方は十人十色で千差万別です。あなたの哲学と他の方々の哲学を共存させ、この大海の更なる深みを目指しましょう。）"></textarea><br>
+                    <input type="submit" value="投稿する" id="submit">
+                </form>
+            </div>
+            <div id="board">
+                <h1 >最新の投稿</h1>
+                <div id="board-left">
+                    <h2>投稿を検索</h2>
+                    <form action="/sea/search" method="post">
+                        <label for="search_word">キーワード：</label>
+                        <input type="text" name="search_word" id="search_word">
+                        <input type="submit" value="検索" id="bl-search">
+                    </form>
+                    <div id="search-content">
+                        <% for(let i in content) {%>
+                            <% let val = content[i]; %>
+                            <li><a href="#bc/<%= val.id %>"><%= val.title %>(<span id="content-date"><%= val.date %> <%= val.time %> </span>)</a></li>
+                        <% } %>
+                    </div>
+                </div>
+                <div id="board-right">
+                    <h2 style="text-align:center">思考の海の底へ</h2>
+                    <% for(let i in content) {%>
+                        <%- include('board-text', {val:content[i]}) %>
+                    <% } %>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="top show">
+        <h3>Top</h3>
+    </div>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <script src="/javascripts/jquery-3.6.0.min.js"></script>
+    <script src="/javascripts/dom-sea.js"></script>
+</body>
+</html>

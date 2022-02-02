@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset='utf-8">
+        <title>PhiloSophy~思考の海と哲学の森~</title>
+        <link rel="stylesheet" href="/stylesheets/index.css">
+        <link rel="icon" href="/icon/22299638.jpg">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Playfair+Display:ital@1&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <div class="tree">
+            <div id="top_header">
+                <p id="th_title">PhiloSophy <span style="font-size:1.2vw;">~思考の海と哲学の森~</span></p>
+                <% if(account_name) {%>
+                    <div id="th_menu1">
+                        <a href="/home" id="th_home">ホーム</a>
+                        <div id="th_menu1_content">
+                            <p><a href="/forest">哲学の森</a></p>
+                            <p><a href="/sea">思考の海</a></p>
+                        </div>
+                    </div>
+                    <div id="th_menu2">
+                        <a id="th_account">アカウント</a>
+                        <div id="th_menu2_content">
+                            <p><a href="/home/account/<%= account_name %>" id="th_create" style="font-size: 1.2vw;"><img src="" alt=""><%= account_name %> </a></p>
+                            <p><a href="/home/logout" id="th_logout">ログアウト</a></p>
+                        </div>
+                    </div>
+                <% } else { %>
+                    <div id="th_menu1">
+                        <a id="th_home">メニュー</a>
+                        <div id="th_menu1_content">
+                            <p><a href="/forest">哲学の森</a></p>
+                            <p><a href="/sea">思考の海</a></p>
+                        </div>
+                    </div>
+                    <div id="th_menu2">
+                        <a id="th_account">アカウント</a>
+                        <div id="th_menu2_content">
+                            <p><a id="th_login">ログイン</a></p>
+                            <p><a href="/home/signup" id="th_create"><img src="" alt="">アカウント作成</a></p>
+                        </div>
+                    </div>
+                <% } %>
+            </div>
+            <div id="header">
+                <p id="title">PhiloSophy</p>
+                <div id="subheader">
+                    <a href="/sea"><ion-icon name="chevron-back-outline" id="left-arrow"></ion-icon></a>
+                    <h3>~思考の海と哲学の森~</h3>
+                    <a href="/forest"><ion-icon name="chevron-forward-outline" id="right-arrow"></ion-icon></a>
+                </div>
+            </div>
+            <div id="area">
+                <h2>はじめに</h2>
+                <h5><a id="link" class="link-sea">思考の海とは</a></h5>
+                <h5><a id="link" class="link-forest">哲学の森とは</a></h5>
+                <h5><a id="link" class="link-warning">注意事項</a></h5>
+            </div>
+            <div id="outer">
+                <h2 style="text-align: center; ">最新の投稿</h2>
+                <div id="info">
+                    <div id="info-content">
+                        <h2>思考の海</h2>
+                        <ul>
+                          <% for(let i in content_sea) {%>
+                            <li><a href="/sea"><%= content_sea[i].title %>(<%= content_sea[i].date %>)</a></li>
+                          <% } %>
+                        </ul>
+                    </div>
+                    <div id="info-content">
+                        <h2>哲学の森</h2>
+                        <ul>
+                            <% for(let i in content_forest) {%>
+                                <% let val = content_forest[i]; %>
+                                <li><a href="/forest/#card/<%=val.id %>"><%= val.title %>(<%= val.name %>)</a></li>
+                            <% } %>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="sea show">
+            <h3>思考の海へ</h3>
+        </div>
+        <div class="forest show">
+            <h3>哲学の森へ</h3>
+        </div>
+        <div class="description-sea">
+            <h1 style="margin: 10px 20px; border-bottom: 1px solid #fff;">思考の海</h1>
+            <p>
+                人の生き方、生きる道はそれぞれ異なるものです。それぞれが全うしている道の中で芽生えた個々の考え方や価値観、それらを互いに共有することで斬新で感慨深い発想が生まれると私は信じています。
+                今までを振り返り、感じたこと、経験したこと、それらの記憶を通じて数多の困難を乗り越えるための武器としての考え方を身につけて頂ければ幸いです。どんな考え方でも、どんな経験でも、些細なことでも多種多様。あなたのあなただけの哲学をお教え下さい。
+                このページは主に自身の考えを多数の方と共有や、自身が持つ哲学の形成を行う場としてお使い下さい。<br><br>
+
+                思考の海、己の考えが渦巻く大海。この海で考えれば考える程、海の底に沈んでいく。そうして沈んでいくと、辺りは段々と暗くなっていきやがては光の刺さない暗闇に包まれる。暗闇の中たった一人考え続け、海面に浮上すると。この世界は、今まで見た事ある以上に光って
+                いると気づいた。今まで見ていた光景も、考え方、捉え方によっては全く別のものに見えるだろう。
+            </p>
+            <p id="close-sea">閉じる</p>
+        </div>
+
+        <div class="description-forest">
+            <h1 style="margin: 10px 20px; border-bottom: 1px solid #fff;">哲学の森</h1>
+            <p>
+                この世界を生きるというのは簡単なことではありません。物質的に豊かになった今ではありとあらゆるものが以前に比べ手に入りやすくなった上、安全で平和な世界が約束されました。そんな今日でさえ生き抜くというのは難しいのです。いついかなる時代でもその時代特有の辛さや過酷さが存在しているからです。
+                先人はその世界で何を見て、何を経験し、何を感じたのか。それらの軌跡や考え方は哲学としてこの世界に存在しています。私達が持つ哲学と先人が築き上げてきた哲学がきっと次の新たな哲学を生むでしょう。時代がそうやって進化してきたように、哲学という学問も日々進化しているのです。
+                この哲学の森は、先人の哲学や名言を主に取り上げております。あなたが持つ素晴らしい哲学の形成に役に立てたのなら幸いです。あなたが歩む道に追い風が噴きますように。<br><br>
+
+                哲学の森、初めこの場所はただの更地であった。しかし、そこに一つの芽が生え、人々はその芽を何世代に渡って育て続けていった。気づけば辺り一面は木で囲われ、森へと変わっていき、その芽は大木となった。新たな考えは次の考えを生み、その考えがまた新たな考えを生む。
+            </p>
+            <p id="close-forest">閉じる</p>
+        </div>
+        <div class="description-warning">
+            <h1 style="margin: 10px 20px; border-bottom: 1px solid #fff;">注意事項</h1>
+            <ul>
+                <li>投稿へのダメ出し、自身の価値観を押し付ける様な投稿はお止めください。</li>
+                <li>他の方々への誹謗中傷や論争となるような投稿はお止めください。その様な記事を見つけた場合直ちに対処させていただきます。</li>
+                <li>考えすぎに要注意。考えすぎが逆に底から抜け出せなくなる恐れがあります。辛いとき、困難に直面している時、また感傷に浸りたい時などの境地に陥った時哲学は真価を発揮します。何事も程々に。</li>
+                <li>意見、ご要望に関するお問合せは<a href="/home/faq" style="color: rgb(155, 241, 155);">こちら</a></li>
+            </ul>
+            <p id="close-warning">閉じる</p>
+        </div>
+        <div class="login-form show">
+            <img src="/icon/icons8-close-48.png" id="lf_close">
+            <h3>ログイン</h3>
+            <form action="/home/login" method="post">
+                <input type="text" name="name" id="name" placeholder="UserName"><br>
+                <input type="password" name="pass" id="pass" placeholder="PassWord"><br>
+                <input type="submit" value="ログイン" id="login"">
+            </form>
+            <ul>
+                <li>アカウントの作成は <a href="/home/signup">こちら</a>から</li>
+                <li>ログイン情報をお忘れの方は<a href="/home/check">こちら</a></li>
+            </ul>
+        </div>
+        <% if(result !== '') {%>
+            <div class="create-comp">
+                <h3><%= result %> </h3>
+                <button id="close_btn">閉じる</button>
+            </div>
+        <% } %>
+        <% if(account_name) {%>
+            <div class="create-comp">
+                <h3>ログイン状態です。</h3>
+                <button id="close_btn">閉じる</button>
+            </div>
+        <% }else{ %>
+            <div class="create-comp">
+                <h3>現在ログイン状態ではありません。</h3>
+                <button id="close_btn">閉じる</button>
+            </div>
+        <% } %>
+        <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+        <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+        <script src="/javascripts/jquery-3.6.0.min.js"></script>
+        <script src="/javascripts/dom-index.js"></script>
+    </body>
+</html>
