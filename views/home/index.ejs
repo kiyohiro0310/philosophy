@@ -15,7 +15,7 @@
                 <p id="th_title">PhiloSophy <span style="font-size:1.2vw;">~思考の海と哲学の森~</span></p>
                 <% if(account_name) {%>
                     <div id="th_menu1">
-                        <a href="/home" id="th_home">ホーム</a>
+                        <a href="/" id="th_home">ホーム</a>
                         <div id="th_menu1_content">
                             <p><a href="/forest">哲学の森</a></p>
                             <p><a href="/sea">思考の海</a></p>
@@ -24,8 +24,8 @@
                     <div id="th_menu2">
                         <a id="th_account">アカウント</a>
                         <div id="th_menu2_content">
-                            <p><a href="/home/account/<%= account_name %>" id="th_create" style="font-size: 1.2vw;"><img src="" alt=""><%= account_name %> </a></p>
-                            <p><a href="/home/logout" id="th_logout">ログアウト</a></p>
+                            <p><a href="/account/<%= account_name %>" id="th_create" style="font-size: 1.2vw;"><img src="" alt=""><%= account_name %> </a></p>
+                            <p><a href="/logout" id="th_logout">ログアウト</a></p>
                         </div>
                     </div>
                 <% } else { %>
@@ -40,7 +40,7 @@
                         <a id="th_account">アカウント</a>
                         <div id="th_menu2_content">
                             <p><a id="th_login">ログイン</a></p>
-                            <p><a href="/home/signup" id="th_create"><img src="" alt="">アカウント作成</a></p>
+                            <p><a href="/signup" id="th_create"><img src="" alt="">アカウント作成</a></p>
                         </div>
                     </div>
                 <% } %>
@@ -118,21 +118,21 @@
                 <li>投稿へのダメ出し、自身の価値観を押し付ける様な投稿はお止めください。</li>
                 <li>他の方々への誹謗中傷や論争となるような投稿はお止めください。その様な記事を見つけた場合直ちに対処させていただきます。</li>
                 <li>考えすぎに要注意。考えすぎが逆に底から抜け出せなくなる恐れがあります。辛いとき、困難に直面している時、また感傷に浸りたい時などの境地に陥った時哲学は真価を発揮します。何事も程々に。</li>
-                <li>意見、ご要望に関するお問合せは<a href="/home/faq" style="color: rgb(155, 241, 155);">こちら</a></li>
+                <li>意見、ご要望に関するお問合せは<a href="//faq" style="color: rgb(155, 241, 155);">こちら</a></li>
             </ul>
             <p id="close-warning">閉じる</p>
         </div>
         <div class="login-form show">
             <img src="/icon/icons8-close-48.png" id="lf_close">
             <h3>ログイン</h3>
-            <form action="/home/login" method="post">
+            <form action="/login" method="post">
                 <input type="text" name="name" id="name" placeholder="UserName"><br>
                 <input type="password" name="pass" id="pass" placeholder="PassWord"><br>
                 <input type="submit" value="ログイン" id="login"">
             </form>
             <ul>
-                <li>アカウントの作成は <a href="/home/signup">こちら</a>から</li>
-                <li>ログイン情報をお忘れの方は<a href="/home/check">こちら</a></li>
+                <li>アカウントの作成は <a href="/signup">こちら</a>から</li>
+                <li>ログイン情報をお忘れの方は<a href="/check">こちら</a></li>
             </ul>
         </div>
         <% if(result !== '') {%>

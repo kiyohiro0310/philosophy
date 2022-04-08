@@ -6,7 +6,7 @@
         <link rel="stylesheet" href="/stylesheets/index.css">
         <link rel="icon" href="/icon/22299638.jpg">
     <body class="signup_body">
-        <a href="/home" id="su_back"><< 戻る</a>
+        <a href="/" id="su_back"><< 戻る</a>
         <h1 style="text-align: center;">アカウント情報</h1>
         <div id="account">
             <div id="account_img">
@@ -14,7 +14,7 @@
                 <p id="img_text">編集</p>
             </div>
             <div id="account_info">
-                <form action="/home/account" method="post">
+                <form action="/account" method="post">
                     <div id="form_group">
                         <label for="ac_name">UserName:</label><br>
                         <input type="text" name="ac_name" id="ac_name" value="<%= name %>"><br>
@@ -40,7 +40,7 @@
                         <p><%= val.text %> </p>
                         <h4 id="text-name">
                             <img src="/icon/<%= val.imgurl %>.jpg">
-                            <a href="/home/<%= val.username %> " style="margin-right: 3px;"><%= val.username %> </a>
+                            <a href="/<%= val.username %> " style="margin-right: 3px;"><%= val.username %> </a>
                             (<span id="date"><%= val.date %> </span>)
                         </h4>
                     </div>

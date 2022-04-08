@@ -28,7 +28,7 @@ app.use(session({
   cookie: {maxAge: 60 * 60 * 1000}
 }))
 
-app.use('/home', indexRouter);
+app.use('/', indexRouter);
 app.use('/forest', forestRouter);
 app.use('/sea', seaRouter);
 
